@@ -1,0 +1,96 @@
+<!doctype html>
+
+
+    
+    
+    eBook Search
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .search-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-container h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .search-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+
+
+
+    <div class="search-container">
+        <h1>eBook Search</h1>
+        <input type="text" id="book-name" placeholder="Enter book name" />
+        <button onclick="searchBook()">Search</button>
+        <p class="error-message" id="error-message"></p>
+    </div>
+
+    <script>
+        function searchBook() {
+            const bookName = document.getElementById("book-name").value.trim();
+            const errorMessage = document.getElementById("error-message");
+
+            if (!bookName) {
+                errorMessage.textContent = "Please enter a book name.";
+                return;
+            } else {
+                errorMessage.textContent = "";
+            }
+
+            // Create the Google search query
+            const searchQuery = `intext:"${bookName}" filetype:pdf OR filetype:epub OR filetype:mobi`;
+            const googleSearchURL = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+
+            // Redirect to Google search with the generated query
+            window.open(googleSearchURL, "_blank");
+        }
+    </script>
+
+
+</!doctype>
