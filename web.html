@@ -1,7 +1,12 @@
 <!doctype html>
+  <div class="search-container">
+        <h1>eBook Search</h1>
+        <input type="text" id="book-name" placeholder="Enter book name" />
+        <button onclick="searchBook()">Search</button>
+        <p class="error-message" id="error-message"></p>
+    </div>
 
-
-    
+    </!doctype>
     
 
     <style>
@@ -63,14 +68,6 @@
     </style>
 
 
-
-    <div class="search-container">
-        <h1>eBook Search</h1>
-        <input type="text" id="book-name" placeholder="Enter book name" />
-        <button onclick="searchBook()">Search</button>
-        <p class="error-message" id="error-message"></p>
-    </div>
-
     <script>
         function searchBook() {
             const bookName = document.getElementById("book-name").value.trim();
@@ -93,4 +90,4 @@
     </script>
 
 
-</!doctype>
+
